@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestLoginFacebookByputPictureAndName</string>
+    <string name="facebook_app_id">198624400650473</string>
+    <string name="action_show_access_token_title">Print Access Token</string>
+</resources>

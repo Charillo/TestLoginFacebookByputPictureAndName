@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PutPictureAndName.MainActivity">
+
+
+    <item
+        android:id="@+id/action_show_access_token"
+        android:orderInCategory="1"
+        android:title="@string/action_show_access_token_title"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/action_show_graph_PieChart"
+        android:orderInCategory="1"
+        android:title="ShowGraphPieChart"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_show_graph_BarChart"
+        android:orderInCategory="1"
+        android:title="ShowGraphBarChart"
+        app:showAsAction="never" />
+</menu>
