@@ -2,11 +2,15 @@ package phromphong.testloginfacebookbyputpictureandname.PutPictureAndName;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     PrefUtil prefUtil;
     IntentUtil intentUtil;
-
-
-
+    TextView tvPieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +65,7 @@ public class MainActivity extends AppCompatActivity {
         profileImgView = (ImageView) findViewById(R.id.profile_img);
         loginButton = (LoginButton) findViewById(R.id.fb_login_bn);
         callbackManager = CallbackManager.Factory.create();
-
-
+        tvPieChart = (TextView) findViewById(R.id.tvPieChartV);
 
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -77,15 +78,15 @@ public class MainActivity extends AppCompatActivity {
                 String accessToken = loginResult.getAccessToken().getToken();
 
                 prefUtil.saveAccessToken(accessToken);
+                Log.d("User ID :: ",userId);
 
                 String profileImgUrl = "https://graph.facebook.com/" + userId + "/picture?type=large";
 
                 Glide.with(MainActivity.this)
                         .load(profileImgUrl)
                         .into(profileImgView);
-                  /* Service of PieChart */
 
-                  /* End Service of PieChart */
+
 
             }//End OnSuccess
 

@@ -27,26 +27,36 @@ public class PieChart extends AppCompatActivity {
         setContentView(R.layout.activity_pie_chart);
         mypiechart = (com.github.mikephil.charting.charts.PieChart)findViewById(R.id.chart);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.16.68.147/ppms/")
+                .baseUrl("http://dekdee.buu.ac.th/~56160140/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         service = retrofit.create(OPPMSService.class);
         service.getOPPMSData().enqueue(new Callback<OPPMSDAO>() {
             @Override
             public void onResponse(Call<OPPMSDAO> call, Response<OPPMSDAO> response) {
-                Log.d("RESPONSE", "SUCCESS");
-                if(response.isSuccessful()) {
-                    //Log.d("RESPONSE", response.body().details.creator);
-                    ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
-                    for (int i=0 ; i < response.body().graphData.size();i++) {
-                        entries.add(new PieEntry(response.body().graphData.get(i).second,
-                                response.body().graphData.get(i).phaseName)
 
-                        );
+
+                if(response.isSuccessful()) {
+
+
+                    Log.d("RESPONSE", String.valueOf(response.body().cat));
+                    Log.d("RESPONSE Dog", String.valueOf(response.body().dog));
+                    String arr[] = {String.valueOf(response.body().cat),String.valueOf(response.body().dog),String.valueOf(response.body().rat),String.valueOf(response.body().bird),String.valueOf(response.body().codomo_dragon)};
+                     //Log.d("RESPONSE", response.body().details.creator);
+                    ArrayList<PieEntry> entries = new ArrayList<PieEntry>();
+                    for (int i = 0; i < arr.length; i++) {
+                        Float mystring = Float.valueOf(arr[i]);
+
+                        entries.add(new PieEntry(mystring));
+
                     }
 
+
+
+
+
                     PieDataSet pieDataSet = new PieDataSet(entries,"####");
-                    pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+                    pieDataSet.setColors(ColorTemplate.COLOR_NONE);
                     PieData pieData = new PieData(pieDataSet);
                     mypiechart.setData(pieData);
                 }else{

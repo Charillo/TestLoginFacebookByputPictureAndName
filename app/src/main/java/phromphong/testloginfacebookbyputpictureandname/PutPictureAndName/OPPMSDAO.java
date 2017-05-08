@@ -18,5 +18,20 @@ public class OPPMSDAO {
     @SerializedName("detail_BarChart")
     public ArrayList<Details> detail_BarChart;
 
+    @SerializedName("cat")
+    public int cat;
+
+    @SerializedName("dog")
+    public int dog;
+
+    @SerializedName("rat")
+    public int rat;
+
+    @SerializedName("bird")
+    public int bird;
+
+    @SerializedName("codomo_dragon")
+    public int codomo_dragon;
+
 
 }

@@ -71,6 +71,18 @@ public class Details {
 
 
 
+    @SerializedName("name")
+    public float name;
+
+    @SerializedName("value")
+    public float value;
+
+    @SerializedName("color")
+    public float color;
+
+
+
+
 
 
 }

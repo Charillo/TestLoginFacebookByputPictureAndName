@@ -12,8 +12,9 @@ import retrofit2.http.POST;
 public interface OPPMSService {
 
 
-    @POST("index.php/OPPMS/service_android/graph_cycle")
+    @POST("final_service/graph_cycle.php")
     Call<OPPMSDAO> getOPPMSData();
+
 
     @POST("application/views/inventory/borrow/Andriod_SMEs/Final_BarChart.php")
     Call<OPPMSDAO> getBarChart(); //รับข้อมูล
