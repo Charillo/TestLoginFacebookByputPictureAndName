@@ -56,7 +56,7 @@ public class PieChart extends AppCompatActivity {
 
 
                     PieDataSet pieDataSet = new PieDataSet(entries,"####");
-                    pieDataSet.setColors(ColorTemplate.COLOR_NONE);
+                    pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
                     PieData pieData = new PieData(pieDataSet);
                     mypiechart.setData(pieData);
                 }else{
